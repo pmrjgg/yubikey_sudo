@@ -1,0 +1,37 @@
+# --- Secrets: NEVER commit these -------------------------------------------
+# pam_u2f key handles (bind the YubiKey to this machine/user)
+u2f_keys
+u2f_mappings
+**/Yubico/u2f_keys
+# PIV keys, certificates, CSRs and exports
+*.pem
+*.key
+*.crt
+*.cer
+*.csr
+*.p12
+*.pfx
+*.der
+# Management key / PIN / PUK notes
+*secret*
+*.pin
+*.puk
+.env
+.env.*
+
+# --- Local backups of PAM files ---------------------------------------------
+backups/
+*.bak
+*.orig
+
+# --- macOS / editors --------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.vscode/
+.idea/
+*.swp
+*~

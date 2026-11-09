@@ -1,0 +1,13 @@
+# /etc/pam.d/sudo_local
+# Local sudo PAM config. Survives macOS updates and is included by /etc/pam.d/sudo.
+# Install with:  sudo install -m 444 -o root -g wheel config/sudo_local /etc/pam.d/sudo_local
+#
+# "sufficient" = a YubiKey touch is enough; if it fails or the key is absent,
+# sudo falls through to the PIV PIN (pam_smartcard) and then your password.
+# Keep it "sufficient" so you can never lock yourself out of sudo.
+
+# YubiKey FIDO2/U2F touch (Homebrew pam-u2f, Apple Silicon path)
+auth       sufficient     /opt/homebrew/lib/pam/pam_u2f.so cue origin=pam://yubikey-mac appid=pam://yubikey-mac
+
+# Optional: Touch ID as another alternative (uncomment to enable)
+#auth       sufficient     pam_tid.so
